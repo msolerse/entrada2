@@ -1,7 +1,7 @@
 <!-- Editable table -->
 <div class="card">
-  <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Entrada de albaranes</h3>
-  <div class="card-body">
+  <!-- <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Entrada de albaranes</h3>-->
+  <div class="card-body"> 
     <div id="table" class="table-editable">
       <span class="table-add float-right mb-3 mr-2">
         <a class="text-success" (click)="add()">
@@ -10,31 +10,34 @@
       </span>
       <table class="table table-bordered table-responsive-md table-striped text-center">
         <tr>
-          <th class="text-center">Person Name</th>
-          <th class="text-center">Age</th>
-          <th class="text-center">Company Name</th>
-          <th class="text-center">Country</th>
-          <th class="text-center">City</th>
-          <th class="text-center">Sort</th>
-          <th class="text-center">Remove</th>
+          <th class="text-center">Código</th>
+          <th class="text-center">Descripción</th>
+          <th class="text-center">Ctd.Ref.</th>
+          <th class="text-center">UM</th>
+          <th class="text-center">Cant.</th>
+          <th class="text-center">Dif</th>
+          <th class="text-center"></th>
         </tr>
         <tr *ngFor="let person of personList; let id = index">
           <td>
-            <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{person.name}}</span>
+            <span (keyup)="changeValue(id, 'codigo', $event)" (blur)="updateList(id, 'codigo', $event)" contenteditable="false">{{person.codigo}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.age}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'descripcion', $event)" (blur)="updateList(id, 'descripcion', $event)">{{person.descripcion}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'cantRef', $event)" (blur)="updateList(id, 'cantRef', $event)">{{person.cantRef}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'country', $event)" (blur)="updateList(id, 'country', $event)">{{person.country}}</span>
+              <span contenteditable="true" (keyup)="changeValue(id, 'um', $event)" (blur)="updateList(id, 'um', $event)">{{person.um}}</span>
+            </td>
+            <td>
+            <span contenteditable="true" (keyup)="changeValue(id, 'cant', $event)" (blur)="updateList(id, 'cant', $event)">{{person.cant}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+            <span contenteditable="true" (keyup)="changeValue(id, 'dif', $event)" (blur)="updateList(id, 'dif', $event)">{{person.dif}}</span>
           </td>
-          <td>
+           <!-- <td>
             <span class="table-up">
               <a class="indigo-text">
                 <mdb-icon fas icon="long-arrow-alt-up"></mdb-icon>
@@ -45,10 +48,11 @@
                 <mdb-icon fas icon="long-arrow-alt-down"></mdb-icon>
               </a>
             </span>
-          </td>
+          </td>  -->
           <td>
             <span class="table-remove">
-              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">Remove</button>
+              <!-- <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">B</button> -->
+              <button mat-mini-fab color="accent"  (click)="remove(id)">B</button> 
             </span>
           </td>
         </tr>
@@ -57,3 +61,8 @@
   </div>
 </div>
 <!-- Editable table -->
+<mat-card>
+  <button mat-raised-button (click)="goBack()" >Salir</button> 
+  <button mat-raised-button color="accent" (click)="goValidar()" >Validar</button>
+
+</mat-card> 
