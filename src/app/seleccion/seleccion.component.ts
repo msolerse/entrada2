@@ -32,6 +32,7 @@ export class SeleccionComponent implements OnInit {
   ];
   
   documento: string = '1234567890';
+  albaran: string = '12345-ABC';
   observaciones: string = "hola que tal";
   tipoDoc: string = 'Pedido-0';
   tipoMov: string = 'Previo';

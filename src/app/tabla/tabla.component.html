@@ -1,3 +1,11 @@
+<mat-card>  
+          <mat-card-title>
+            Pedido
+          </mat-card-title>
+          <mat-card-subtitle>
+            {{this.idPedido}}
+          </mat-card-subtitle>
+</mat-card>
 <!-- Editable table -->
 <div class="card">
   <!-- <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Entrada de albaranes</h3>-->
@@ -23,19 +31,19 @@
             <span (keyup)="changeValue(id, 'codigo', $event)" (blur)="updateList(id, 'codigo', $event)" contenteditable="false">{{person.codigo}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'descripcion', $event)" (blur)="updateList(id, 'descripcion', $event)">{{person.descripcion}}</span>
+            <span contenteditable="false" (keyup)="changeValue(id, 'descripcion', $event)" (blur)="updateList(id, 'descripcion', $event)">{{person.descripcion}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'cantRef', $event)" (blur)="updateList(id, 'cantRef', $event)">{{person.cantRef}}</span>
+            <span contenteditable="false" (keyup)="changeValue(id, 'cantRef', $event)" (blur)="updateList(id, 'cantRef', $event)">{{person.cantRef}}</span>
           </td>
           <td>
-              <span contenteditable="true" (keyup)="changeValue(id, 'um', $event)" (blur)="updateList(id, 'um', $event)">{{person.um}}</span>
+              <span contenteditable="false" (keyup)="changeValue(id, 'um', $event)" (blur)="updateList(id, 'um', $event)">{{person.um}}</span>
             </td>
             <td>
             <span contenteditable="true" (keyup)="changeValue(id, 'cant', $event)" (blur)="updateList(id, 'cant', $event)">{{person.cant}}</span>
           </td>
           <td>
-            <span contenteditable="true" (keyup)="changeValue(id, 'dif', $event)" (blur)="updateList(id, 'dif', $event)">{{person.dif}}</span>
+            <span contenteditable="false" (keyup)="changeValue(id, 'dif', $event)" (blur)="updateList(id, 'dif', $event)">{{person.dif}}</span>
           </td>
            <!-- <td>
             <span class="table-up">
@@ -52,7 +60,10 @@
           <td>
             <span class="table-remove">
               <!-- <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">B</button> -->
-              <button mat-mini-fab color="accent"  (click)="remove(id)">B</button> 
+              <!-- <button mat-mini-fab color="accent"  (click)="remove(id)">B</button> -->
+              <button mat-icon-button color="warn"  (click)="remove(id)">
+                  <mat-icon class="mat-18">delete</mat-icon>
+                </button>  
             </span>
           </td>
         </tr>
