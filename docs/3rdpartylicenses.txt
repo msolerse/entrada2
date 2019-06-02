@@ -97,6 +97,8 @@ THE SOFTWARE.
 
 @angular/material/select
 
+@angular/material/table
+
 @angular/material/toolbar
 
 @angular/platform-browser
@@ -142,6 +144,9 @@ trademarks does not indicate endorsement of the trademark holder by Font
 Awesome, nor vice versa. **Please do not use brand logos for any purpose except
 to represent the company, product, or service to which they refer.**
 
+
+@ncstate/sat-popover
+MIT
 
 angular-bootstrap-md
 

@@ -45,7 +45,7 @@ export class SeleccionComponent implements OnInit {
 
   
 goValidacion() {
-  this.router.navigate(['tabla',  this.documento]);
+  this.router.navigate(['tabla2',  this.documento]);
 }
 
 }

@@ -1,0 +1,80 @@
+
+
+
+<div style="padding: 32px">
+
+  <div class="example-container mat-elevation-z8">
+  <mat-card>  
+    <mat-card-title>
+      Pedido
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{this.idPedido}}
+    </mat-card-subtitle>
+</mat-card>
+</div>
+
+  <div class="example-container mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="codigo">
+        <mat-header-cell *matHeaderCellDef> Código </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.codigo}} </mat-cell>
+      </ng-container>
+ <!-- Name Column -->
+ <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Descripción </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <mat-header-cell *matHeaderCellDef> Unidad </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <!-- Comment Column -->
+      <ng-container matColumnDef="comment">
+        <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
+        <mat-cell *matCellDef="let element" [satPopoverAnchorFor]="p" (click)="p.open()">
+          <ng-container *ngIf="element.comment">
+            {{element.comment}}
+          </ng-container>
+          <span class="add-comment" *ngIf="!element.comment">
+            Indicar cantidad
+          </span>
+
+          <sat-popover #p
+              hasBackdrop
+              xAlign="start"
+              yAlign="start"
+              (closed)="update(element, $event)">
+            <inline-edit [value]="element.comment"></inline-edit>
+          </sat-popover>
+        </mat-cell>
+      </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="actionsColumn">
+      <mat-header-cell *matHeaderCellDef>
+        <button mat-icon-button color="primary" (click)="addRow()"><i class="fa fa-plus mat-icon"></i></button>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" focusable="false" (click)="remove( element )">
+            <mat-icon class="mat-18">delete</mat-icon>
+            </button>
+      </mat-cell>
+    </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+  </div>
+  <div class="example-container mat-elevation-z8">
+  <mat-card>
+    <button mat-raised-button (click)="goBack()" >Salir</button> 
+    <button mat-raised-button color="accent" (click)="goValidar()" >Validar</button>
+  
+  </mat-card> 
+</div>
+</div>
